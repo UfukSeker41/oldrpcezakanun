@@ -3,74 +3,78 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Old Roleplay | Ceza Listesi</title>
+    <title>..Roleplay | Legal Ceza Sistemi</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="backdrop-glow"></div>
-
-    <header class="topbar">
-      <div class="brand-wrap">
-        <div class="brand-badge">ORP</div>
-        <div>
-          <p class="eyebrow">Old Roleplay</p>
-          <h1>Ceza Listesi</h1>
-        </div>
-      </div>
-      <div class="header-actions">
-        <div class="stat-pill"><span id="totalCrimes">0</span> Suç</div>
-      </div>
-    </header>
-
-    <main class="container">
-      <section class="toolbar card">
+    <div class="legacy-app">
+      <div class="legacy-toolbar">
         <div class="search-box">
-          <label for="searchInput">Ara</label>
-          <input id="searchInput" type="text" placeholder="Suç adı veya açıklama ara..." />
+          <span>⌕</span>
+          <input id="searchInput" type="text" placeh..er="Suç adı, kategori veya açıklama ara..." />
         </div>
 
         <div class="filter-box">
-          <label for="categoryFilter">Kategori</label>
+          <label>Kategori</label>
           <select id="categoryFilter">
             <option value="all">Tümü</option>
-            <option value="Ağır Suçlar">Ağır Suçlar</option>
-            <option value="Kamu İdaresine ve Güvenilirliğine Dair">Kamu İdaresine ve Güvenilirliğine Dair</option>
-            <option value="Kamuya Karşı İşlenen Suçlar">Kamuya Karşı İşlenen Suçlar</option>
-            <option value="Nitelikli Suçlar">Nitelikli Suçlar</option>
-            <option value="Kamu Suçları">Kamu Suçları</option>
-            <option value="Sistematik Suçlar">Sistematik Suçlar</option>
-            <option value="Silahla İlgili Suçlar">Silahla İlgili Suçlar</option>
-            <option value="Uyuşturucu İle İlgili Suçlar">Uyuşturucu İle İlgili Suçlar</option>
-            <option value="Araçlarla İlgili Suçlar">Araçlarla İlgili Suçlar</option>
-            <option value="Trafikte İşlenen Suçlar">Trafikte İşlenen Suçlar</option>
-            <option value="Soygun Suçları">Soygun Suçları</option>
           </select>
         </div>
-      </section>
 
-      <section class="summary-grid" id="summaryGrid"></section>
-
-      <section class="table-card card">
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Kategori</th>
-                <th>No / Adı</th>
-                <th>Uygulama</th>
-                <th>Süre</th>
-                <th>İdari Para Cezası</th>
-                <th>Suç Açıklaması</th>
-              </tr>
-            </thead>
-            <tbody id="crimeTableBody"></tbody>
-          </table>
+        <div class="filter-box">
+          <label>Ağırılık</label>
+          <select id="severityFilter">
+            <option value="all">Tümü</option>
+            <option value="light">Hafif</option>
+            <option value="medium">Orta</option>
+            <option value="heavy">Ağır</option>
+          </select>
         </div>
-      </section>
-    </main>
+
+        <div class="filter-box">
+          <label>Sırala</label>
+          <select id="sortBy">
+            <option value="default">Varsayılan</option>
+            <option value="title">İsim (A-Z)</option>
+            <option value="duration">Süre</option>
+            <option value="fine">Para Cezası</option>
+            <option value="severity">Ağırılık</option>
+          </select>
+        </div>
+
+        <button id="resetFilters" class="reset-button">Filtreleri Sıfırla</button>
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-card">
+          <span>Toplam Kayıt</span>
+          <strong id="totalCount">0</strong>
+        </div>
+        <div class="summary-card">
+          <span>Toplam Ceza</span>
+          <strong id="totalFine">₺0</strong>
+        </div>
+        <div class="summary-card">
+          <span>En Yüksek Süre</span>
+          <strong id="maxDuration">0 ay</strong>
+        </div>
+        <div class="summary-card">
+          <span>Aktif Kategori</span>
+          <strong id="activeCategory">Tümü</strong>
+        </div>
+      </div>
+
+      <div id="noteBoard" class="note-board"></div>
+
+      <div class="results-meta">
+        <span id="resultsMeta">0 sonuç</span>
+      </div>
+
+      <div id="crimeBoard" class="crime-board"></div>
+    </div>
 
     <script src="script.js"></script>
   </body>
